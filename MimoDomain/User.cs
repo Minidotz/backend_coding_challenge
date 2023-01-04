@@ -6,6 +6,5 @@
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public List<CourseProgress> CourseProgress { get; set; } = new List<CourseProgress>();
-        public List<UserAchievement> UserAchievements { get; set; } = new List<UserAchievement>();
     }
 }

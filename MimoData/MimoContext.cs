@@ -122,18 +122,6 @@ namespace MimoData
             //Entity configuration
             modelBuilder.Entity<Achievement>().Property(p => p.Type).HasConversion<string>();
 
-            modelBuilder.Entity<UserAchievement>().HasKey(ua => new { ua.AchievementId, ua.UserId });
-            modelBuilder.Entity<UserAchievement>()
-                .HasOne(ua => ua.Achievement)
-                .WithMany()
-                .HasForeignKey(ua => ua.AchievementId);
-            modelBuilder.Entity<UserAchievement>()
-                .HasOne(ua => ua.User)
-                .WithMany(u => u.UserAchievements)
-                .HasForeignKey(ua => ua.UserId)
-                .IsRequired();
-            modelBuilder.Entity<UserAchievement>().Property(ua => ua.CompletedDateTime).HasDefaultValueSql("datetime()");
-
             modelBuilder.Entity<CourseProgress>()
                 .HasOne(cp => cp.Lesson)
                 .WithMany()
