@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Design;
 using MimoDomain;
 
-namespace MimoData
+namespace MimoData.DbContexts
 {
     public class MimoContext : DbContext
     {
@@ -14,7 +14,7 @@ namespace MimoData
 
         public MimoContext(DbContextOptions<MimoContext> options)
             : base(options)
-        { 
+        {
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -28,7 +28,7 @@ namespace MimoData
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             //Seed Data
-            modelBuilder.Entity<User>().HasData(new User { UserId = 1, FirstName = "Stratos", LastName = "Paraskevaidis"});
+            modelBuilder.Entity<User>().HasData(new User { UserId = 1, FirstName = "Stratos", LastName = "Paraskevaidis" });
 
             var courses = new Course[]
             {

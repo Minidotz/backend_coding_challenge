@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using MimoBackendChallengeAPI.Services;
+using MimoData.DbContexts;
 using MimoData.Repositories;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -8,7 +9,7 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
-builder.Services.AddDbContext<MimoData.MimoContext>(
+builder.Services.AddDbContext<MimoContext>(
     opt => opt.UseSqlite(builder.Configuration.GetConnectionString("MimoConnection")));
 
 builder.Services.AddScoped<IMimoRepository, MimoRepository>();

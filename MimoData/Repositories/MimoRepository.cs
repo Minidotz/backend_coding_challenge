@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using MimoData.DbContexts;
 using MimoDomain;
 
 namespace MimoData.Repositories
